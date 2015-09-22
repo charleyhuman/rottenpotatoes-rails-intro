@@ -19,14 +19,14 @@ class MoviesController < ApplicationController
     redirect = false
     filters.each do |filter, default|
       if params[filter].blank?
-#        if !session[filter].blank?
-#          redirect = true
-#          params[filter] = session[filter]
-#        else
+        if !session[filter].blank?
+          redirect = true
+          params[filter] = session[filter]
+        else
           params[filter] = default
-#        end
+        end
       end
-#      session[filter] = params[filter]
+      session[filter] = params[filter]
     end
 #    puts '1' + session[:sort_by].to_s
 #    puts '2' + session[:ratings].keys.to_s
